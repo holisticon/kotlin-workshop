@@ -28,7 +28,8 @@ Die Klasse soll eine JPA-Entity sein und über folgende Properties verfügen:
 - `nextPlayer` vom Typ `Players`  
 - `winner` vom Typ `Players`-Enum (nullable)
 
-Die Klasse soll einen Konstruktor bekommen, in dem ein Wert für die Property `initialItems` gesetzt werden kann. Ergänze die Properties und überlege, ob der Konstruktorparameter jeweils ein `val` oder `var` sein kann.
+Die Klasse soll einen All-Args-Konstruktor bekommen. 
+Überlege, ob die Konstruktorparameter jeweils ein `val` oder `var` sein können.
 
 ## GameRepository
 
