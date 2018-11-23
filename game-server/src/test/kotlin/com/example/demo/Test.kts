@@ -58,3 +58,9 @@ class Scooter {
     fun start(): Unit = println("Starting")
 
 }
+
+// Data classes
+data class User(var name: String)
+
+val user = User("Heinz")
+user.name = "Herbert"
