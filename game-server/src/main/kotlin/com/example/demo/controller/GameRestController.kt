@@ -2,10 +2,10 @@ package com.example.demo.controller
 
 import com.example.demo.engine.GameEngine
 import mu.KLogging
-import org.example.demo.rest.api.GameApi
-import org.example.demo.rest.model.GameDto
-import org.example.demo.rest.model.NewGameDto
-import org.example.demo.rest.model.TurnDto
+import com.example.demo.rest.api.GameApi
+import com.example.demo.rest.model.GameDto
+import com.example.demo.rest.model.NewGameDto
+import com.example.demo.rest.model.TurnDto
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
