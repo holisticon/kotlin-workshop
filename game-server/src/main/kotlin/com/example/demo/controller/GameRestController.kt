@@ -5,11 +5,11 @@ import com.example.demo.engine.GameEngine
 import com.example.demo.entity.GameEntity
 import com.example.demo.repo.GameRepository
 import mu.KLogging
-import org.example.demo.rest.api.GameApi
-import org.example.demo.rest.model.GameDto
-import org.example.demo.rest.model.NewGameDto
-import org.example.demo.rest.model.PlayerDto
-import org.example.demo.rest.model.TurnDto
+import com.example.demo.rest.api.GameApi
+import com.example.demo.rest.model.GameDto
+import com.example.demo.rest.model.NewGameDto
+import com.example.demo.rest.model.PlayerDto
+import com.example.demo.rest.model.TurnDto
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
