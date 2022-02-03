@@ -1,8 +1,7 @@
 package com.example.demo.engine
 
-import com.example.demo.entity.Players
 import com.example.demo.entity.GameEntity
-import com.google.common.annotations.VisibleForTesting
+import com.example.demo.entity.Players
 import mu.KLogging
 import org.springframework.stereotype.Service
 
@@ -14,7 +13,6 @@ class GameEngine {
     /**
      * Validates if the itemsToBeTaken can be taken by the playerMakingAMove on the given game.
      */
-    @VisibleForTesting
     internal fun validateTurn(game: GameEntity, itemsToBeTaken: Int, playerMakingAMove: Players): ValidationResult {
         logger.info { "Validating turn in ${game.id} for $playerMakingAMove" }
 

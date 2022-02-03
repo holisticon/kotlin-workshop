@@ -9,30 +9,21 @@ import com.example.demo.rest.model.GameDto;
 import com.example.demo.rest.model.NewGameDto;
 import com.example.demo.rest.model.TurnDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2022-02-03T14:33:39.534+01:00")
 
-@Api(value = "game", description = "the game API")
 public interface GameApi {
 
     Logger log = LoggerFactory.getLogger(GameApi.class);
@@ -49,13 +40,9 @@ public interface GameApi {
         return getRequest().map(r -> r.getHeader("Accept"));
     }
 
-    @ApiOperation(value = "Create a new game instance", nickname = "createGame", notes = "", response = String.class, tags={ "Game data", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 201, message = "Game created", response = String.class),
-        @ApiResponse(code = 400, message = "Bad request. Game not created.") })
     @RequestMapping(value = "/game",
         method = RequestMethod.POST)
-    default ResponseEntity<String> createGame(@ApiParam(value = "Data needed to create a new game." ,required=true )  @Valid @RequestBody NewGameDto newGame) {
+    default ResponseEntity<String> createGame(@RequestBody NewGameDto newGame) {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {
@@ -72,9 +59,6 @@ public interface GameApi {
     }
 
 
-    @ApiOperation(value = "Retrieve all game instances", nickname = "getGames", notes = "", response = GameDto.class, responseContainer = "List", tags={ "Game data", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Successful", response = GameDto.class, responseContainer = "List") })
     @RequestMapping(value = "/game",
         method = RequestMethod.GET)
     default ResponseEntity<List<GameDto>> getGames() {
@@ -94,13 +78,9 @@ public interface GameApi {
     }
 
 
-    @ApiOperation(value = "Make a turn", nickname = "play", notes = "", response = GameDto.class, tags={ "Game data", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Turn played", response = GameDto.class),
-        @ApiResponse(code = 400, message = "Invalid turn") })
     @RequestMapping(value = "/game/{id}",
         method = RequestMethod.PUT)
-    default ResponseEntity<GameDto> play(@ApiParam(value = "Id of the game instance which you want to play",required=true ) @PathVariable("id") String id,@ApiParam(value = "The turn you want to play" ,required=true )  @Valid @RequestBody TurnDto turn) {
+    default ResponseEntity<GameDto> play(@PathVariable String id, @RequestBody TurnDto turn) {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {

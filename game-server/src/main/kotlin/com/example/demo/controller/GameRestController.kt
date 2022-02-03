@@ -1,18 +1,17 @@
 package com.example.demo.controller
 
 import com.example.demo.engine.GameEngine
-import mu.KLogging
 import com.example.demo.rest.api.GameApi
 import com.example.demo.rest.model.GameDto
 import com.example.demo.rest.model.NewGameDto
 import com.example.demo.rest.model.TurnDto
+import mu.KLogging
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
-import javax.validation.Valid
 
 
 /**
@@ -44,12 +43,12 @@ class GameRestController(
      *
      * Returns the link to the newly created game.
      */
-    override fun createGame(@Valid @RequestBody newGame: NewGameDto): ResponseEntity<String> {
+    override fun createGame(@RequestBody newGame: NewGameDto): ResponseEntity<String> {
         // FIXME
         return ResponseEntity("", null, HttpStatus.CREATED)
     }
 
-    override fun play(@PathVariable("id") id: String, @Valid @RequestBody turn: TurnDto): ResponseEntity<GameDto> {
+    override fun play(@PathVariable("id") id: String, @RequestBody turn: TurnDto): ResponseEntity<GameDto> {
         // FIXME
         return ResponseEntity.ok(GameDto())
     }

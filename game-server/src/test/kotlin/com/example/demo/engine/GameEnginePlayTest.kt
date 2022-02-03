@@ -1,9 +1,9 @@
 package com.example.demo.engine
 
-import com.example.demo.entity.Players
 import com.example.demo.entity.GameEntity
+import com.example.demo.entity.Players
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class GameEnginePlayTest {
 
