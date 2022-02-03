@@ -12,7 +12,7 @@ class Company2(val name: String)
 class Company3(var name: String)
 class Company4(private var name: String)
 
-val c = Company4(name = "x")
+val c = Company1(name = "x")
 
 
 class Person(

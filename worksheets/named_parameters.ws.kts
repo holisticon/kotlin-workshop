@@ -12,7 +12,7 @@ play(amount = 4.0, cheat = true)
 
 
 // Named parameters, different order
-play( cheat = true, amount = 4.0)
+play(cheat = true, amount = 4.0)
 
 
 // Named and unnamed parameters mixed (don't do that)
