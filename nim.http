@@ -1,0 +1,23 @@
+###
+# Get list of games
+GET http://localhost:8080/game
+Accept: application/json
+
+###
+# Create game
+POST http://localhost:8080/game
+Content-Type: application/json
+
+{
+  "initialItems": 13
+}
+
+###
+# Make a turn
+PUT http://localhost:8080/game/6167093963250833902
+Content-Type: application/json
+
+{
+  "takenItems": 3,
+  "player":  "HUMAN"
+}

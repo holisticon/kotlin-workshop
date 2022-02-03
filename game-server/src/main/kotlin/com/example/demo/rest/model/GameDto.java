@@ -1,13 +1,8 @@
 package com.example.demo.rest.model;
 
-import java.util.Objects;
-import com.example.demo.rest.model.PlayerDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import java.util.Objects;
 
 /**
  * GameDto
@@ -42,7 +37,6 @@ public class GameDto   {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
 
 
   public String getId() {
@@ -62,7 +56,6 @@ public class GameDto   {
    * Get remainingItems
    * @return remainingItems
   **/
-  @ApiModelProperty(value = "")
 
 
   public Integer getRemainingItems() {
@@ -82,7 +75,6 @@ public class GameDto   {
    * Get initialItems
    * @return initialItems
   **/
-  @ApiModelProperty(value = "")
 
 
   public Integer getInitialItems() {
@@ -102,7 +94,6 @@ public class GameDto   {
    * Get finished
    * @return finished
   **/
-  @ApiModelProperty(value = "")
 
 
   public Boolean Finished() {
@@ -122,9 +113,6 @@ public class GameDto   {
    * Get nextPlayer
    * @return nextPlayer
   **/
-  @ApiModelProperty(value = "")
-
-  @Valid
 
   public PlayerDto getNextPlayer() {
     return nextPlayer;
@@ -143,9 +131,6 @@ public class GameDto   {
    * Get winner
    * @return winner
   **/
-  @ApiModelProperty(value = "")
-
-  @Valid
 
   public PlayerDto getWinner() {
     return winner;

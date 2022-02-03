@@ -16,12 +16,6 @@
         <version>0.0.2-SNAPSHOT</version>
     </parent>
 
-    <properties>
-        <application.base-package>com.example.demo.rest</application.base-package>
-        <application.api-package>${application.base-package}.api</application.api-package>
-        <application.model-package>${application.base-package}.model</application.model-package>
-        <application.config-package>${application.base-package}</application.config-package>
-    </properties>
 
     <dependencies>
         <!-- Spring -->
@@ -37,30 +31,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.toolisticon.springboot</groupId>
-            <artifactId>springboot-swagger-starter</artifactId>
-        </dependency>
 
-        <!-- Own artifacts -->
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>commons</artifactId>
-        </dependency>
-
-        <!-- Reactor -->
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-bus</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-core</artifactId>
-        </dependency>
 
         <!-- Kotlin -->
         <dependency>
@@ -125,73 +96,6 @@
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <groupId>org.jetbrains.kotlin</groupId>
             </plugin>
-
-<!--            <plugin>-->
-<!--                &lt;!&ndash; Enforce resource copy &ndash;&gt;-->
-<!--                &lt;!&ndash; This is a fix of Kotlin incremental Compiler bug &ndash;&gt;-->
-<!--                &lt;!&ndash; See https://discuss.kotlinlang.org/t/kotlin-compiler-incremental-not-copying-resources/5640/5 &ndash;&gt;-->
-<!--                <artifactId>maven-resources-plugin</artifactId>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>copy-rest-api</id>-->
-<!--                        <phase>generate-sources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>copy-resources</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <outputDirectory>${project.build.directory}/swagger-model</outputDirectory>-->
-<!--                            <resources>-->
-<!--                                <resource>-->
-<!--                                    <directory>../commons/src/main/swagger</directory>-->
-<!--                                </resource>-->
-<!--                            </resources>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-
-<!--                </executions>-->
-<!--            </plugin>-->
-
-
-<!--            <plugin>-->
-<!--                &lt;!&ndash; generate spring controller stubs &ndash;&gt;-->
-<!--                <groupId>io.swagger</groupId>-->
-<!--                <artifactId>swagger-codegen-maven-plugin</artifactId>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>generate-server-stubs</id>-->
-<!--                        <phase>process-sources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <inputSpec>${project.build.directory}/swagger-model/swagger.yml</inputSpec>-->
-<!--                            <templateDirectory>src/main/swaggerTemplates</templateDirectory>-->
-<!--                            <language>spring</language>-->
-<!--                            <apiPackage>${application.api-package}</apiPackage>-->
-<!--                            <modelPackage>${application.model-package}</modelPackage>-->
-<!--                            <modelNameSuffix>Dto</modelNameSuffix>-->
-
-<!--                            &lt;!&ndash;-->
-<!--                            Uncomment to see all options-->
-<!--                            &ndash;&gt;-->
-<!--                            &lt;!&ndash;<configHelp>true</configHelp>&ndash;&gt;-->
-
-<!--                            <configOptions>-->
-<!--                                <interfaceOnly>true</interfaceOnly>-->
-<!--                                <basePackage>${application.base-package}</basePackage>-->
-<!--                                <configPackage>${application.config-package}</configPackage>-->
-<!--                                <swaggerDocketConfig>false</swaggerDocketConfig>-->
-
-<!--                                &lt;!&ndash; this uses Java8+ types and sets java8 option to true &ndash;&gt;-->
-<!--                                <dateLibrary>java8</dateLibrary>-->
-<!--                                <useOptional>true</useOptional>-->
-<!--                                <bigDecimalAsString>true</bigDecimalAsString>-->
-<!--                                <useBeanValidation>true</useBeanValidation>-->
-<!--                            </configOptions>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
 
         </plugins>
     </build>

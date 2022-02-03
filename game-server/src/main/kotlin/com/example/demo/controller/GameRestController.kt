@@ -1,15 +1,15 @@
 package com.example.demo.controller
 
-import com.example.demo.entity.Players
 import com.example.demo.engine.GameEngine
 import com.example.demo.entity.GameEntity
+import com.example.demo.entity.Players
 import com.example.demo.repo.GameRepository
-import mu.KLogging
 import com.example.demo.rest.api.GameApi
 import com.example.demo.rest.model.GameDto
 import com.example.demo.rest.model.NewGameDto
 import com.example.demo.rest.model.PlayerDto
 import com.example.demo.rest.model.TurnDto
+import mu.KLogging
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import java.net.URI
-import javax.validation.Valid
 
 
 /**
@@ -62,7 +61,7 @@ class GameRestController(
      *
      * Returns the link to the newly created game.
      */
-    override fun createGame(@Valid @RequestBody newGame: NewGameDto): ResponseEntity<String> {
+    override fun createGame(@RequestBody newGame: NewGameDto): ResponseEntity<String> {
 
         // Create entity
         val game = GameEntity(
@@ -81,7 +80,7 @@ class GameRestController(
         return ResponseEntity(savedGame.id, headers, HttpStatus.CREATED)
     }
 
-    override fun play(@PathVariable("id") id: String, @Valid @RequestBody turn: TurnDto): ResponseEntity<GameDto> {
+    override fun play(@PathVariable("id") id: String, @RequestBody turn: TurnDto): ResponseEntity<GameDto> {
         // Find game or throw Exception
         val game = gameRepository.findById(id).orElseThrow { GameNotFoundException() }
 

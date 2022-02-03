@@ -1,13 +1,8 @@
 package com.example.demo.rest.model;
 
-import java.util.Objects;
-import com.example.demo.rest.model.PlayerDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import java.util.Objects;
 
 /**
  * TurnDto
@@ -30,8 +25,6 @@ public class TurnDto   {
    * Get takenItems
    * @return takenItems
   **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
 
 
   public Integer getTakenItems() {
@@ -51,10 +44,6 @@ public class TurnDto   {
    * Get player
    * @return player
   **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
 
   public PlayerDto getPlayer() {
     return player;
