@@ -78,6 +78,19 @@
 			<plugin>
 				<artifactId>kotlin-maven-plugin</artifactId>
 				<groupId>org.jetbrains.kotlin</groupId>
+				<configuration>
+					<jvmTarget>${java.version}</jvmTarget>
+					<!-- Compiler plugins need to be configured on this level for IntelliJ to recognize them -->
+					<compilerPlugins>
+						<plugin>spring</plugin>
+						<plugin>jpa</plugin>
+						<plugin>no-arg</plugin>
+					</compilerPlugins>
+					<pluginOptions>
+						<!-- Each annotation is placed on its own line -->
+						<option>spring:annotation=javax.persistence.Entity</option>
+					</pluginOptions>
+				</configuration>
 				<executions>
 					<execution>
 						<id>kapt</id>
@@ -113,6 +126,11 @@
 					<dependency>
 						<groupId>org.jetbrains.kotlin</groupId>
 						<artifactId>kotlin-maven-allopen</artifactId>
+						<version>${kotlin.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.jetbrains.kotlin</groupId>
+						<artifactId>kotlin-maven-noarg</artifactId>
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
